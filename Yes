@@ -1,0 +1,115 @@
+import tkinter as tk
+from tkinter import ttk
+import threading
+import pygame
+import random
+import time
+
+# Initialize Pygame for the animated background
+pygame.init()
+bg_width, bg_height = 800, 600
+bg_surface = pygame.Surface((bg_width, bg_height))
+
+# Function to generate green binary rain
+def generate_binary_rain():
+    font = pygame.font.SysFont('Courier', 20)
+    columns = int(bg_width / 20)
+    drops = [0 for _ in range(columns)]
+
+    while True:
+        bg_surface.fill((0, 0, 0))
+        for i in range(len(drops)):
+            text = font.render(str(random.randint(0, 1)), True, (0, 255, 0))
+            bg_surface.blit(text, (i * 20, drops[i] * 20))
+            drops[i] += 1
+            if drops[i] * 20 > bg_height or random.random() > 0.95:
+                drops[i] = 0
+        time.sleep(0.1)
+
+# Start the binary rain in a separate thread
+threading.Thread(target=generate_binary_rain, daemon=True).start()
+
+# Fake product keys for demonstration
+fake_keys = [
+    "AAAAA-BBBBB-CCCCC-DDDDD-EEEEE",
+    "FFFFF-GGGGG-HHHHH-IIIII-JJJJJ",
+    "KKKKK-LLLLL-MMMMM-NNNNN-OOOOO"
+]
+
+# Main application class
+class KeygenApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Fake Windows Key Generator")
+        self.root.geometry("800x600")
+        self.root.configure(bg='black')
+
+        # Canvas for the animated background
+        self.canvas = tk.Canvas(self.root, width=800, height=600, highlightthickness=0)
+        self.canvas.pack(fill="both", expand=True)
+
+        # Update the background periodically
+        self.update_background()
+
+        # Frame for the main menu
+        self.menu_frame = tk.Frame(self.canvas, bg='black')
+        self.canvas.create_window((50, 50), window=self.menu_frame, anchor="nw")
+
+        # Windows versions for the main buttons
+        self.windows_versions = [
+            "Windows 95", "Windows 98", "Windows 2000", "Windows XP",
+            "Windows Vista", "Windows 7", "Windows 8", "Windows 8.1",
+            "Windows 10", "Windows 11"
+        ]
+
+        # Create main menu buttons
+        self.create_main_menu()
+
+        # Text widget for simulated dir /s output
+        self.dir_output = tk.Text(self.canvas, width=30, height=35, bg='black', fg='red', font=('Courier', 10))
+        self.canvas.create_window((550, 50), window=self.dir_output, anchor="nw")
+        self.update_dir_output()
+
+    def update_background(self):
+        # Convert Pygame surface to Tkinter PhotoImage
+        bg_image = pygame.surfarray.array3d(bg_surface)
+        bg_image = bg_image.swapaxes(0, 1)
+        self.bg_photo = tk.PhotoImage(width=bg_width, height=bg_height)
+        self.bg_photo.put("{" + " ".join(["#" + "".join([f"{pixel:02x}" for pixel in row]) for row in bg_image[0]]) + "}", to=(0, 0))
+        self.canvas.create_image(0, 0, image=self.bg_photo, anchor="nw")
+        self.root.after(100, self.update_background)
+
+    def create_main_menu(self):
+        for version in self.windows_versions:
+            btn = tk.Button(self.menu_frame, text=version, bg='gray', fg='white',
+                            width=20, relief='raised', command=lambda v=version: self.show_submenu(v))
+            btn.pack(pady=5)
+
+    def show_submenu(self, version):
+        submenu = tk.Toplevel(self.root)
+        submenu.title(f"{version} Editions")
+        submenu.configure(bg='black')
+        editions = ["Home", "Professional", "Enterprise", "Ultimate", "Education"]
+        for edition in editions:
+            btn = tk.Button(submenu, text=edition, bg='gray', fg='white',
+                            width=20, relief='raised', command=lambda e=edition: self.show_keys(version, e))
+            btn.pack(pady=5)
+
+    def show_keys(self, version, edition):
+        keys_window = tk.Toplevel(self.root)
+        keys_window.title(f"{version} {edition} Keys")
+        keys_window.configure(bg='black')
+        for key in fake_keys:
+            btn = tk.Button(keys_window, text=key, bg='gray', fg='white',
+                            width=30, relief='raised')
+            btn.pack(pady=5)
+
+    def update_dir_output(self):
+        self.dir_output.insert(tk.END, f"Directory listing {random.randint(1000,9999)}\n")
+        self.dir_output.see(tk.END)
+        self.root.after(500, self.update_dir_output)
+
+# Create the main window and run the app
+root = tk.Tk()
+app = KeygenApp(root)
+root.mainloop()
